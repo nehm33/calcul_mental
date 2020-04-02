@@ -27,6 +27,18 @@ public class Operation {
 	public int getResultat() {
 		return op.evaluer(opGauche, opDroite);
 	}
+	
+	public boolean verifResultat(int val) {
+		return this.getResultat()==val;
+	}
+
+	public void setOpGauche(int opGauche) {
+		this.opGauche = opGauche;
+	}
+
+	public void setOpDroite(int opDroite) {
+		this.opDroite = opDroite;
+	}
 
 	@Override
 	public String toString() {
