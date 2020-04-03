@@ -18,12 +18,12 @@ public class Modele {
 		this.currOp = GenAleatoireOperation.nouvelleOperation(niveau);
 	}
 
-	public void notifierFenetre(boolean reinit, int niveau) {
+	public void notifierFenetre(boolean reinit, int niveau, int val) {
 		if (reinit) {
 			this.reinit(niveau);
 		}
 		currOp = GenAleatoireOperation.nouvelleOperation(currNiveau);
-		
+		f.update(currOp.verifResultat(val), currOp);
 	}
 
 }
