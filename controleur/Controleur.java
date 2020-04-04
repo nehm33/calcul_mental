@@ -12,11 +12,13 @@ public class Controleur implements MouseListener {
 	private Fenetre fenetre;
 	private Modele modele;
 	private ContrBoutQuit cbq;
+	private ContrBoutJouer cbj;
 	
 	public Controleur(Fenetre fenetre, Modele modele) {
 		this.fenetre = fenetre;
 		this.modele = modele;
 		this.cbq = new ContrBoutQuit();
+		this.cbj = new ContrBoutJouer(this.fenetre);
 	}
 
 	@Override
@@ -28,6 +30,10 @@ public class Controleur implements MouseListener {
 		
 			case "QUITTER":
 				cbq.mouseClicked(arg0);
+				break;
+				
+			case "JOUER":
+				cbj.mouseClicked(arg0);
 				break;
 				
 			default:
