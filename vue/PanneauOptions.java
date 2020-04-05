@@ -34,6 +34,7 @@ public class PanneauOptions extends AbstractPanImg {
 		mode[1] = new JRadioButton("CLM");
 		mode[2] = new JRadioButton("Infini");
 		mode[3] = new JRadioButton("Burger");
+		mode[0].setSelected(true);
 		for (int i=0; i<4; i++) {
 			if (i == 0) {
 				mode[i].setBounds(500, 160, 75, 50);
