@@ -11,14 +11,13 @@ import vue.PanneauPrincipal;
 
 
 
-public class ContrPanAtt implements ActionListener {
+public class ContrPanAtt extends AbstractContrPan {
 	
-	private Fenetre f;
 	private Timer timer;
 	private int nbInterrupt = 0;
 
 	public ContrPanAtt(Fenetre f) {
-		this.f = f;
+		super(f);
 		this.timer = new Timer(50, this);
 	}
 	

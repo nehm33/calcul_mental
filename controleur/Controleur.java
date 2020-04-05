@@ -7,63 +7,26 @@ import equation.Modele;
 import vue.Bouton;
 import vue.Fenetre;
 
-public class Controleur implements MouseListener {
+public class Controleur {
 	
 	private Fenetre fenetre;
 	private Modele modele;
-	private ContrBoutQuit cbq;
-	private ContrBoutJouer cbj;
+	private ContrBoutQuit controleBoutQuit;
+	private ContrBoutJouer controleBoutJouer;
 	
 	public Controleur(Fenetre fenetre, Modele modele) {
 		this.fenetre = fenetre;
 		this.modele = modele;
-		this.cbq = new ContrBoutQuit();
-		this.cbj = new ContrBoutJouer(this.fenetre);
+		this.controleBoutQuit = new ContrBoutQuit();
+		this.controleBoutJouer = new ContrBoutJouer(this.fenetre);
 	}
 
-	@Override
-	public void mouseClicked(MouseEvent arg0) {
-
-		Bouton clic = (Bouton) arg0.getSource();
-		
-		switch (clic.getText()) {
-		
-			case "QUITTER":
-				cbq.mouseClicked(arg0);
-				break;
-				
-			case "JOUER":
-				cbj.mouseClicked(arg0);
-				break;
-				
-			default:
-				break;
-		}
-		
+	public ContrBoutQuit getControleBoutQuit() {
+		return controleBoutQuit;
 	}
 
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public ContrBoutJouer getControleBoutJouer() {
+		return controleBoutJouer;
 	}
 
 }
