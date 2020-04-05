@@ -19,6 +19,7 @@ public abstract class AbstractPanImg extends AbstractPan {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		this.setLayout(null);
 	}
 	
 	public void paintComponent(Graphics g) {

@@ -4,7 +4,6 @@ public class PanneauPrincipal extends AbstractPanImg {
 	
 	public PanneauPrincipal(Fenetre f) {
 		super(f);
-		this.setLayout(null);
 		this.add(new Bouton(this.f,"JOUER", 200, 50, 400, 100, 
 								this.f.getControle().getControleBoutJouer()));
 		this.add(new Bouton(this.f,"OPTIONS", 200, 200, 400, 100, null));
