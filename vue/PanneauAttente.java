@@ -7,17 +7,15 @@ import java.awt.Graphics;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class PanneauAttente extends JPanel {
+public class PanneauAttente extends AbstractPan {
 	
-	private Fenetre fenetre;
 	private JLabel lab;
 	private int nbInterrupt=0;
 
 	public PanneauAttente(Fenetre f) {
-		this.fenetre = f;
-		Font font = new Font("Arial", Font.BOLD, 50);
+		super(f);
 		this.lab = new JLabel("");
-		lab.setFont(font);
+		lab.setFont(new Font("Arial", Font.BOLD, 50));
 		lab.setForeground(Color.BLUE);
 		lab.setLocation((this.getWidth()-lab.getWidth())/2, 
 										(this.getHeight()-lab.getHeight())/2);
@@ -25,8 +23,7 @@ public class PanneauAttente extends JPanel {
 	}
 	
 	public void paintComponent(Graphics g) {
-		g.setColor(Color.WHITE);
-		g.fillRect(0, 0, this.getWidth(), this.getHeight());
+		super.paintComponent(g);
 		
 		if (nbInterrupt >= 80) {
 			lab.setText("GO!!!");
