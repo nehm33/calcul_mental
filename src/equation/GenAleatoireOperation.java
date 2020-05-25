@@ -1,4 +1,4 @@
-package equation;
+package src.equation;
 
 public class GenAleatoireOperation {
 	

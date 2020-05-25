@@ -1,29 +1,24 @@
-package equation;
+package src.equation;
 
-import vue.Fenetre;
+import src.vue.Fenetre;
 
 // Zen(nb fixe), Infini(erreur fatale), CLM(1min), Burger(1min+bonus et malus)
 public class Modele {
 	
 	private Operation currOp;
-	private int currNiveau;
+	private int currNiveau = 1;
 	private Fenetre f;
 	
 	public Modele(Fenetre f) {
 		this.f = f;
 	}
 
-	public void reinit(int niveau) {
-		this.currNiveau = niveau;
-		this.currOp = GenAleatoireOperation.nouvelleOperation(niveau);
+	public int getCurrNiveau() {
+		return currNiveau;
 	}
 
-	public void notifierFenetre(boolean reinit, int niveau, int val) {
-		if (reinit) {
-			this.reinit(niveau);
-		}
-		currOp = GenAleatoireOperation.nouvelleOperation(currNiveau);
-		f.update(currOp.verifResultat(val), currOp);
+	public void setCurrNiveau(int currNiveau) {
+		this.currNiveau = currNiveau;
 	}
 
 }
