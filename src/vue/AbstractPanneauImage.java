@@ -15,8 +15,8 @@ public abstract class AbstractPanneauImage extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Image img;
-	private Fenetre f;
+	protected Image img;
+	protected Fenetre f;
 	
 	public AbstractPanneauImage(String image, Fenetre f) {
 		try {

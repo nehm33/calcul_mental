@@ -5,8 +5,8 @@ import src.vue.Fenetre;
 
 public abstract class AbstractControleur {
 	
-	private Fenetre vue;
-	private Modele modele;
+	protected Fenetre vue;
+	protected Modele modele;
 	
 	public AbstractControleur(Fenetre vue, Modele modele) {
 		super();

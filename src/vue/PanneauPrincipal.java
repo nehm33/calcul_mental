@@ -3,6 +3,8 @@ package src.vue;
 import javax.swing.JButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PanneauPrincipal extends AbstractPanneauImage {
 	/**
@@ -13,9 +15,9 @@ public class PanneauPrincipal extends AbstractPanneauImage {
 	/**
 	 * Create the panel.
 	 */
-	public PanneauPrincipal(Fenetre f) {
+	public PanneauPrincipal(Fenetre fenetre) {
 		
-		super("images/fond.jpg", f);
+		super("images/fond.jpg", fenetre);
 		
 		JButton btnJouer = new JButton("Jouer");
 		
@@ -24,6 +26,11 @@ public class PanneauPrincipal extends AbstractPanneauImage {
 		JButton btnAide = new JButton("Aide");
 		
 		JButton btnQuitter = new JButton("Quitter");
+		btnQuitter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				f.getControle().quitter();
+			}
+		});
 		
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
