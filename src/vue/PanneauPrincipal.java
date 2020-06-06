@@ -5,6 +5,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class PanneauPrincipal extends AbstractPanneauImage {
 	/**
@@ -20,12 +21,22 @@ public class PanneauPrincipal extends AbstractPanneauImage {
 		super("images/fond.jpg", fenetre);
 		
 		JButton btnJouer = new JButton("Jouer");
+		btnJouer.setFont(new Font("Times New Roman", Font.BOLD, 30));
 		
 		JButton btnOptions = new JButton("Options");
+		btnOptions.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		btnOptions.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				f.setMenuOptions();
+			}
+		});
 		
 		JButton btnAide = new JButton("Aide");
+		btnAide.setFont(new Font("Times New Roman", Font.BOLD, 30));
 		
 		JButton btnQuitter = new JButton("Quitter");
+		btnQuitter.setFont(new Font("Times New Roman", Font.BOLD, 30));
 		btnQuitter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				f.getControle().quitter();

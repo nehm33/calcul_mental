@@ -55,5 +55,10 @@ public class Fenetre extends JFrame {
 		this.setContentPane(new PanneauPrincipal(this));
 		this.revalidate();
 	}
+	
+	public void setMenuOptions() {
+		this.setContentPane(new PanneauOptions(this));
+		this.revalidate();
+	}
 
 }
