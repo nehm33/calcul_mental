@@ -25,6 +25,7 @@ public class PanneauOptions extends AbstractPanneauImage {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JSlider sliderTemps;
+	private String modeSelect;
 
 	/**
 	 * Create the panel.
@@ -107,7 +108,9 @@ public class PanneauOptions extends AbstractPanneauImage {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				f.getControle().setOptions((int) spinNiveau.getValue(), modeSelect, 
+																	sliderTemps.getValue());
+				f.setMenuPrincipal();
 			}
 		});
 		
@@ -191,8 +194,8 @@ public class PanneauOptions extends AbstractPanneauImage {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			String nomBouton = ((JRadioButton) arg0.getSource()).getText();
-			if (nomBouton.equalsIgnoreCase("Infini")) {
+			modeSelect = ((JRadioButton) arg0.getSource()).getText();
+			if (modeSelect.equalsIgnoreCase("Infini")) {
 				sliderTemps.setEnabled(false);
 			} else {
 				sliderTemps.setEnabled(true);

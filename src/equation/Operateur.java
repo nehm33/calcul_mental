@@ -38,6 +38,19 @@ public enum Operateur {
 		return ""+this.op;
 	}
 	
+	/**
+	 * 
+	 * @param plus
+	 * booléen signifiant que l'addition est un des choix
+	 * @param moins
+	 *  booléen signifiant que la soustraction est un des choix
+	 * @param mult
+	 *  booléen signifiant que la multiplication est un des choix
+	 * @param div
+	 *  booléen signifiant que la division est un des choix
+	 * @return
+	 * retourne un type d'opération aléatoire selon les choix mis en paramètres
+	 */
 	public static Operateur opAleatoire(boolean plus, boolean moins, 
 													boolean mult, boolean div) {
 		double sum = 0;
