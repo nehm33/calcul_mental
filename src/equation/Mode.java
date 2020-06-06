@@ -1,0 +1,22 @@
+package src.equation;
+
+public enum Mode {
+	
+	Zen("Zen"),
+	CLM("CLM"),
+	Infini("Infini"),
+	Arcade("Arcade");
+	
+	private String nom; 
+	
+	Mode(String nom) {
+		this.nom = nom;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+	
+	
+
+}

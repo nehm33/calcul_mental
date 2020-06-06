@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.SwingConstants;
 import javax.swing.JRadioButton;
@@ -22,12 +24,15 @@ public class PanneauOptions extends AbstractPanneauImage {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private JSlider sliderTemps;
 
 	/**
 	 * Create the panel.
 	 */
 	public PanneauOptions(Fenetre fenetre) {
 		super("images/fond.jpg", fenetre);
+		
+		Map<String, JRadioButton> hash = new HashMap<String, JRadioButton>();
 		
 		JLabel lblNiveau = new JLabel("Niveau");
 		lblNiveau.setHorizontalAlignment(SwingConstants.CENTER);
@@ -38,45 +43,60 @@ public class PanneauOptions extends AbstractPanneauImage {
 		lblMode.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		
 		JRadioButton rdbtnZen = new JRadioButton("Zen");
+		hash.put(rdbtnZen.getText(), rdbtnZen);
 		rdbtnZen.setFont(new Font("Tahoma", Font.BOLD, 11));
 		rdbtnZen.setOpaque(false);
-		rdbtnZen.setSelected(true);
+		rdbtnZen.addActionListener(new ActionListenerRadioButton());
 		
 		JRadioButton rdbtnClm = new JRadioButton("CLM");
+		hash.put(rdbtnClm.getText(), rdbtnClm);
 		rdbtnClm.setFont(new Font("Tahoma", Font.BOLD, 11));
 		rdbtnClm.setOpaque(false);
+		rdbtnClm.addActionListener(new ActionListenerRadioButton());
 		
 		JRadioButton rdbtnInfini = new JRadioButton("Infini");
+		hash.put(rdbtnInfini.getText(), rdbtnInfini);
 		rdbtnInfini.setFont(new Font("Tahoma", Font.BOLD, 11));
 		rdbtnInfini.setOpaque(false);
+		rdbtnInfini.addActionListener(new ActionListenerRadioButton());
 		
 		JRadioButton rdbtnArcade = new JRadioButton("Arcade");
+		hash.put(rdbtnArcade.getText(), rdbtnArcade);
 		rdbtnArcade.setFont(new Font("Tahoma", Font.BOLD, 11));
 		rdbtnArcade.setForeground(Color.WHITE);
 		rdbtnArcade.setOpaque(false);
+		rdbtnArcade.addActionListener(new ActionListenerRadioButton());
 		
+		// Groupe de boutons pour qu'un seul soit selectionne
 		ButtonGroup bg = new ButtonGroup();
 		bg.add(rdbtnArcade);
 		bg.add(rdbtnInfini);
 		bg.add(rdbtnClm);
 		bg.add(rdbtnZen);
 		
+		//Selection du bouton correspondant au mode du modele 
+		JRadioButton boutonSelect = hash.get(f.getModele().getMode().getNom());
+		boutonSelect.setSelected(true);
+		if(boutonSelect.getText().equalsIgnoreCase("Infini")) {
+			sliderTemps.setEnabled(false);
+		}
+		
 		JLabel lblTemps = new JLabel("Temps");
 		lblTemps.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTemps.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		
 		JSpinner spinNiveau = new JSpinner();
-		spinNiveau.setModel(new SpinnerNumberModel(1, 1, 20, 1));
+		spinNiveau.setModel(new SpinnerNumberModel(f.getModele().getCurrNiveau(), 1, 20, 1));
 		
-		JSlider sliderTemps = new JSlider();
+		sliderTemps = new JSlider();
 		sliderTemps.setMajorTickSpacing(60);
 		sliderTemps.setMaximum(150);
 		sliderTemps.setPaintLabels(true);
 		sliderTemps.setSnapToTicks(true);
-		sliderTemps.setValue(90);
 		sliderTemps.setPaintTicks(true);
 		sliderTemps.setMinorTickSpacing(30);
 		sliderTemps.setMinimum(30);
+		sliderTemps.setValue(f.getModele().getTemps());
 		
 		JLabel lblSecondes = new JLabel("secondes");
 		lblSecondes.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -133,7 +153,7 @@ public class PanneauOptions extends AbstractPanneauImage {
 							.addComponent(btnValider, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE)
 							.addGap(145)
 							.addComponent(btnAnnuler, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(150, Short.MAX_VALUE))
+					.addContainerGap(142, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -154,9 +174,9 @@ public class PanneauOptions extends AbstractPanneauImage {
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblTemps, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-							.addComponent(sliderTemps, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addComponent(lblSecondes)))
-					.addPreferredGap(ComponentPlacement.RELATED, 263, Short.MAX_VALUE)
+							.addComponent(lblSecondes)
+							.addComponent(sliderTemps, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addPreferredGap(ComponentPlacement.RELATED, 258, Short.MAX_VALUE)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(btnValider, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnAnnuler, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
@@ -164,6 +184,20 @@ public class PanneauOptions extends AbstractPanneauImage {
 		);
 		setLayout(groupLayout);
 		
+		
+	}
+	
+	private class ActionListenerRadioButton implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			String nomBouton = ((JRadioButton) arg0.getSource()).getText();
+			if (nomBouton.equalsIgnoreCase("Infini")) {
+				sliderTemps.setEnabled(false);
+			} else {
+				sliderTemps.setEnabled(true);
+			}
+		}
 		
 	}
 }
