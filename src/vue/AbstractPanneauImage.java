@@ -7,24 +7,22 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 
-public abstract class AbstractPanneauImage extends JPanel {
+public abstract class AbstractPanneauImage extends AbstractPanneau {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	protected Image img;
-	protected Fenetre f;
 	
 	public AbstractPanneauImage(String image, Fenetre f) {
+		super(f);
 		try {
 			img = ImageIO.read(new File(image));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		this.f = f;
 	}
 	
 	@Override

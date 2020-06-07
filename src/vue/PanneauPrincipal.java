@@ -22,6 +22,13 @@ public class PanneauPrincipal extends AbstractPanneauImage {
 		
 		JButton btnJouer = new JButton("Jouer");
 		btnJouer.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		btnJouer.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				f.setAttente();
+			}
+		});
 		
 		JButton btnOptions = new JButton("Options");
 		btnOptions.setFont(new Font("Times New Roman", Font.BOLD, 30));
