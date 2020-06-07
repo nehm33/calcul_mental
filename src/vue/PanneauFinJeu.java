@@ -2,6 +2,9 @@ package src.vue;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 
@@ -43,6 +46,14 @@ public class PanneauFinJeu extends AbstractPanneauImage {
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 16));
 		btnNewButton.setBounds(600, 624, 110, 43);
 		add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				f.setMenuPrincipal();
+			}
+			
+		});
 		
 		JLabel lblScore = new JLabel("");
 		lblScore.setHorizontalAlignment(SwingConstants.CENTER);

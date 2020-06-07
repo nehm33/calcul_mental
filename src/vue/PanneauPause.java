@@ -2,7 +2,12 @@ package src.vue;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 
@@ -29,9 +34,38 @@ public class PanneauPause extends AbstractPanneauImage {
 		
 		JButton btnRecommencer = new JButton("Recommencer");
 		btnRecommencer.setFont(new Font("Tahoma", Font.BOLD, 25));
+		btnRecommencer.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				int option = JOptionPane.showConfirmDialog(null, 
+						"Voulez-vous vraiment recommencer la partie?", "Recommencer", 
+					    		 	JOptionPane.YES_NO_OPTION, 
+					    		 		JOptionPane.QUESTION_MESSAGE);
+				if (option == JOptionPane.YES_OPTION) {
+					f.setAttente();
+				}
+			}
+			
+		});
 		
 		JButton btnQuitter = new JButton("Quitter");
 		btnQuitter.setFont(new Font("Tahoma", Font.BOLD, 25));
+		btnQuitter.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				int option = JOptionPane.showConfirmDialog(null, 
+						"Voulez-vous vraiment arrêter la partie en cours?", "Quitter la partie", 
+					    		 	JOptionPane.YES_NO_OPTION, 
+					    		 		JOptionPane.QUESTION_MESSAGE);
+				if (option == JOptionPane.YES_OPTION) {
+					f.setMenuPrincipal();
+				}
+			}
+			
+		});
+		
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)

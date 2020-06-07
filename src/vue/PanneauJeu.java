@@ -2,6 +2,9 @@ package src.vue;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFormattedTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -60,6 +63,14 @@ public class PanneauJeu extends AbstractPanneauImage {
 		btnPause.setIcon(new ImageIcon("images/pause.png"));
 		btnPause.setBounds(724, 23, 41, 41);
 		add(btnPause);
+		btnPause.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				f.setPause();
+			}
+			
+		});
 		
 		
 	}

@@ -29,7 +29,7 @@ public class PanneauAttente extends AbstractPanneau {
 		nbPaint++;
 		if (nbPaint >= 40) {
 			nbPaint = 0;
-			f.setMenuPrincipal();
+			f.commenceJeu();
 		}
 		
 		if (nbPaint/10 == 3) {
