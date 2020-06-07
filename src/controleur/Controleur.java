@@ -23,21 +23,27 @@ public class Controleur extends AbstractControleur {
 	}
 	
 	public void setOptions(int niveau, String mode, int temps) {
-		modele.setCurrNiveau(niveau);
-		modele.setTemps(temps);
-		switch (mode) {
-			case "Zen":
-				modele.setMode(Mode.Zen);
-				break;
-			case "CLM":
-				modele.setMode(Mode.CLM);
-				break;
-			case "Infini":
-				modele.setMode(Mode.Infini);
-				break;
-			case "Arcade":
-				modele.setMode(Mode.Arcade);
-				break;
+		int option = JOptionPane.showConfirmDialog(null, 
+				"Voulez-vous vraiment valider ces nouvelles options?", "Enregistrer les options", 
+			    		 	JOptionPane.YES_NO_OPTION, 
+			    		 		JOptionPane.QUESTION_MESSAGE);
+		if (option == JOptionPane.OK_OPTION) {
+			modele.setCurrNiveau(niveau);
+			modele.setTemps(temps);
+			switch (mode) {
+				case "Zen":
+					modele.setMode(Mode.Zen);
+					break;
+				case "CLM":
+					modele.setMode(Mode.CLM);
+					break;
+				case "Infini":
+					modele.setMode(Mode.Infini);
+					break;
+				case "Arcade":
+					modele.setMode(Mode.Arcade);
+					break;
+			}    	
 		}
 	}
 

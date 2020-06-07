@@ -75,13 +75,6 @@ public class PanneauOptions extends AbstractPanneauImage {
 		bg.add(rdbtnClm);
 		bg.add(rdbtnZen);
 		
-		//Selection du bouton correspondant au mode du modele 
-		JRadioButton boutonSelect = hash.get(f.getModele().getMode().getNom());
-		boutonSelect.setSelected(true);
-		if(boutonSelect.getText().equalsIgnoreCase("Infini")) {
-			sliderTemps.setEnabled(false);
-		}
-		
 		JLabel lblTemps = new JLabel("Temps");
 		lblTemps.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTemps.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -98,6 +91,14 @@ public class PanneauOptions extends AbstractPanneauImage {
 		sliderTemps.setMinorTickSpacing(30);
 		sliderTemps.setMinimum(30);
 		sliderTemps.setValue(f.getModele().getTemps());
+		
+		//Selection du bouton correspondant au mode du modele 
+		JRadioButton boutonSelect = hash.get(f.getModele().getMode().getNom());
+		boutonSelect.setSelected(true);
+		modeSelect = boutonSelect.getText();
+		if(boutonSelect.getText().equalsIgnoreCase("Infini")) {
+			sliderTemps.setEnabled(false);
+		}
 		
 		JLabel lblSecondes = new JLabel("secondes");
 		lblSecondes.setFont(new Font("Tahoma", Font.BOLD, 11));
