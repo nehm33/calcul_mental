@@ -42,6 +42,6 @@ public class Operation {
 
 	@Override
 	public String toString() {
-		return "" + opGauche + " " + op + " " + opDroite + " = ";
+		return "" + opGauche + " " + op + " " + opDroite + "  = ";
 	}
 }

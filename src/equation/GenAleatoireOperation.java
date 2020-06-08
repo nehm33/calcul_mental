@@ -2,6 +2,10 @@ package src.equation;
 
 public class GenAleatoireOperation {
 	
+	public GenAleatoireOperation() {
+		
+	}
+
 	public static Operation nouvelleOperation(int niveau) {
 		Operateur op = nouvelOperateur(niveau);
 		Operation o = new Operation(op, 0, 0);
@@ -32,7 +36,7 @@ public class GenAleatoireOperation {
 				o.setOpDroite(number);
 				o.setOpGauche((int) (Math.random()*(niveau-4)*10)+number);
 				break;
-			case '*':
+			case 'x':
 				o.setOpGauche((int) (Math.random()*(niveau-10)*5));
 				o.setOpDroite((int) (Math.random()*(niveau-10)*5));
 				break;

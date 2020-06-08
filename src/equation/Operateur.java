@@ -4,7 +4,7 @@ public enum Operateur {
 	
 	PLUS('+', 0.35),
 	MOINS('-', 0.25),
-	MULT('*', 0.23),
+	MULT('x', 0.23),
 	DIV('/', 0.17);
 	
 	private char op;
@@ -25,7 +25,7 @@ public enum Operateur {
 				return a+b;
 			case '-':
 				return a-b;
-			case '*':
+			case 'x':
 				return a*b;
 			case '/':
 				return a/b;
