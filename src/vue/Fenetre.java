@@ -80,5 +80,20 @@ public class Fenetre extends JFrame {
 		this.setContentPane(new PanneauFinJeu(this));
 		this.revalidate();
 	}
+	
+	public void changeEquation(String equation) {
+		PanneauJeu pan = (PanneauJeu) this.getContentPane();
+		pan.changeEquation(equation);
+	}
+	
+	public void changeScore(String score) {
+		PanneauJeu pan = (PanneauJeu) this.getContentPane();
+		pan.changeScore(score);
+	}
+	
+	public void changeMinuteur(String temps) {
+		PanneauJeu pan = (PanneauJeu) this.getContentPane();
+		pan.changeTemps(temps);
+	}
 
 }

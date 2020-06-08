@@ -9,6 +9,7 @@ public class Modele {
 	private int currNiveau = 1;
 	private int temps = 90;
 	private Mode mode = Mode.Zen;
+	private int score = -1;
 	private Fenetre f;
 	
 	public Modele(Fenetre f) {
@@ -37,6 +38,41 @@ public class Modele {
 
 	public void setMode(Mode mode) {
 		this.mode = mode;
+	}
+	
+	public void nouvelleOperation() {
+		currOp = GenAleatoireOperation.nouvelleOperation(currNiveau);
+		f.changeEquation(currOp.toString());
+	}
+	
+	public boolean verifier(int resultat) {
+		return currOp.verifResultat(resultat);
+	}
+	
+	public void commenceJeu() {
+		nouvelleOperation();
+		score = 0;
+		f.changeScore(""+score);
+	}
+	
+	public void reprendreJeu() {
+		f.changeEquation(currOp.toString());
+		f.changeScore(""+score);
+	}
+	
+	public void termineJeu() {
+		currOp = null;
+		score = -1;
+	}
+	
+	public void augmenteScore(int points) {
+		score += points;
+		f.changeScore(""+score);
+	}
+	
+	public void diminueScore(int points) {
+		score -= points;
+		f.changeScore(""+score);
 	}
 
 }

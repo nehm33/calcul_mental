@@ -74,4 +74,16 @@ public class PanneauJeu extends AbstractPanneauImage {
 		
 		
 	}
+	
+	public void changeEquation(String equation) {
+		lblEquation.setText(equation);
+	}
+	
+	public void changeScore(String score) {
+		lblScore.setText("Score :  "+score);
+	}
+	
+	public void changeTemps(String temps) {
+		lblTemps.setText(temps);
+	}
 }
