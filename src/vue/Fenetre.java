@@ -18,7 +18,6 @@ public class Fenetre extends JFrame {
 
 
 	public Fenetre() {
-		// TODO Auto-generated constructor stub
 		// Parametre de la fenetre
 		  this.setTitle("Calcul Mental");
 		  this.setSize(longueur, largeur);
@@ -77,6 +76,13 @@ public class Fenetre extends JFrame {
 	}
 	
 	public void termineJeu() {
+		PanneauJeu pan = (PanneauJeu) this.getContentPane();
+		pan.setDisabled();
+		try {
+	        Thread.sleep(3000);
+	    } catch (InterruptedException e) {
+	        e.printStackTrace();
+	    }
 		this.setContentPane(new PanneauFinJeu(this));
 		this.revalidate();
 	}
@@ -94,6 +100,11 @@ public class Fenetre extends JFrame {
 	public void changeMinuteur(String temps) {
 		PanneauJeu pan = (PanneauJeu) this.getContentPane();
 		pan.changeTemps(temps);
+	}
+	
+	public void jeuSansTemps() {
+		PanneauJeu pan = (PanneauJeu) this.getContentPane();
+		pan.setSansTemps();
 	}
 
 }

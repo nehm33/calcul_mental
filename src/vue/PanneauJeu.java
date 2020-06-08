@@ -86,4 +86,12 @@ public class PanneauJeu extends AbstractPanneauImage {
 	public void changeTemps(String temps) {
 		lblTemps.setText(temps);
 	}
+	
+	public void setDisabled() {
+		fieldReponse.setEnabled(false);
+	}
+	
+	public void setSansTemps() {
+		lblTemps.setText("");
+	}
 }
