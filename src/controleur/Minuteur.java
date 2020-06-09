@@ -32,16 +32,16 @@ public class Minuteur {
 	}
 	
 	private void decremente() {
-		if (secondes != 0) {
-			secondes--;
-		} else {
-			minutes--;
-			secondes = 59;
-		}
-		c.afficheTemps(toString());
 		if (secondes == 0 && minutes == 0) {
 			timer.stop();
 			c.stop();
+		} else if (secondes != 0) {
+			secondes--;
+			c.afficheTemps(toString());
+		} else {
+			minutes--;
+			secondes = 59;
+			c.afficheTemps(toString());
 		}
 	}
 
