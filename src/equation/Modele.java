@@ -9,7 +9,7 @@ public class Modele {
 	private int currNiveau = 1;
 	private int temps = 90;
 	private Mode mode = Mode.Zen;
-	private int score = -1;
+	private int score = 0;
 	private Fenetre f;
 	
 	public Modele(Fenetre f) {
@@ -40,6 +40,10 @@ public class Modele {
 		this.mode = mode;
 	}
 	
+	public int getScore() {
+		return score;
+	}
+
 	public void nouvelleOperation() {
 		currOp = GenAleatoireOperation.nouvelleOperation(currNiveau);
 		f.changeEquation(currOp.toString());
@@ -58,11 +62,6 @@ public class Modele {
 	public void reprendreJeu() {
 		f.changeEquation(currOp.toString());
 		f.changeScore(""+score);
-	}
-	
-	public void termineJeu() {
-		currOp = null;
-		score = -1;
 	}
 	
 	public void augmenteScore(int points) {

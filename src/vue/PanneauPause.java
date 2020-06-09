@@ -31,6 +31,14 @@ public class PanneauPause extends AbstractPanneauImage {
 		
 		JButton btnReprendre = new JButton("Reprendre");
 		btnReprendre.setFont(new Font("Tahoma", Font.BOLD, 25));
+		btnReprendre.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				f.getControle().reprendre();
+			}
+			
+		});
 		
 		JButton btnRecommencer = new JButton("Recommencer");
 		btnRecommencer.setFont(new Font("Tahoma", Font.BOLD, 25));

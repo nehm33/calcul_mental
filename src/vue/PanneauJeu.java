@@ -1,14 +1,15 @@
 package src.vue;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
 
-import javax.swing.JFormattedTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.Color;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 
 
@@ -30,13 +31,13 @@ public class PanneauJeu extends AbstractPanneauImage {
 		super("images/fond.jpg", f);
 		setLayout(null);
 		
-		lblEquation = new JLabel("45 x 15  =");
+		lblEquation = new JLabel("450 x 150  = ");
 		lblEquation.setFont(new Font("Calibri", Font.BOLD, 70));
-		lblEquation.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEquation.setBounds(86, 293, 329, 65);
+		lblEquation.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblEquation.setBounds(52, 293, 363, 65);
 		add(lblEquation);
 		
-		fieldReponse = new JFormattedTextField();
+		fieldReponse = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		fieldReponse.setFont(new Font("Calibri", Font.BOLD, 70));
 		fieldReponse.setHorizontalAlignment(SwingConstants.CENTER);
 		fieldReponse.setBounds(425, 293, 168, 65);
@@ -46,6 +47,15 @@ public class PanneauJeu extends AbstractPanneauImage {
 		btnValider.setBackground(Color.LIGHT_GRAY);
 		btnValider.setBounds(676, 316, 89, 23);
 		add(btnValider);
+		btnValider.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				f.getControle().verifier(fieldReponse.getText());
+				fieldReponse.setText("");
+			}
+			
+		});
 		
 		lblScore = new JLabel("Score :  80");
 		lblScore.setFont(new Font("Yu Gothic UI Light", Font.BOLD | Font.ITALIC, 20));
@@ -67,7 +77,7 @@ public class PanneauJeu extends AbstractPanneauImage {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.setPause();
+				f.getControle().pause();
 			}
 			
 		});

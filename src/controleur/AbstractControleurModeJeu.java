@@ -36,10 +36,6 @@ public abstract class AbstractControleurModeJeu extends AbstractControleur {
 		}
 	}
 	
-	public void resetModele() {
-		modele.termineJeu();
-	}
-	
 	protected void nouvelleEquation() {
 		modele.nouvelleOperation();
 	}

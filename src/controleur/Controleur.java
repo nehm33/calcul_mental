@@ -7,6 +7,8 @@ import src.equation.Modele;
 import src.vue.Fenetre;
 
 public class Controleur extends AbstractControleur {
+	
+	AbstractControleurModeJeu controleurJeu;
 
 	public Controleur(Fenetre vue, Modele modele) {
 		super(vue, modele);
@@ -45,6 +47,41 @@ public class Controleur extends AbstractControleur {
 					break;
 			}    	
 		}
+	}
+	
+	public void commenceJeu() {
+		switch (modele.getMode()) {
+			case Zen:
+				controleurJeu = new ControleurModeZen(vue, modele);
+				break;
+			case CLM:
+				// TODO
+				break;
+			case Infini:
+				// TODO
+				break;
+			case Arcade:
+				// TODO
+				break;
+		}
+		controleurJeu.start();
+	}
+	
+	public void verifier(String resultat) {
+		if (resultat.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Vous n'avez donné aucune réponse", "Erreur",
+																	JOptionPane.ERROR_MESSAGE);
+		} else {
+			controleurJeu.verifier(Integer.parseInt(resultat));
+		}
+	}
+	
+	public void pause() {
+		controleurJeu.pause();
+	}
+	
+	public void reprendre() {
+		controleurJeu.reprendre();
 	}
 
 }

@@ -56,10 +56,11 @@ public class PanneauFinJeu extends AbstractPanneauImage {
 		});
 		
 		JLabel lblScore = new JLabel("");
-		lblScore.setHorizontalAlignment(SwingConstants.CENTER);
-		lblScore.setBounds(426, 198, 154, 30);
+		lblScore.setFont(new Font("Times New Roman", Font.BOLD, 75));
+		lblScore.setHorizontalAlignment(SwingConstants.LEFT);
+		lblScore.setBounds(340, 181, 240, 60);
 		add(lblScore);
-		
+		lblScore.setText(""+f.getModele().getScore());
 		
 	}
 
