@@ -96,7 +96,8 @@ public class PanneauOptions extends AbstractPanneauImage {
 		JRadioButton boutonSelect = hash.get(f.getModele().getMode().getNom());
 		boutonSelect.setSelected(true);
 		modeSelect = boutonSelect.getText();
-		if(boutonSelect.getText().equalsIgnoreCase("Infini")) {
+		if(boutonSelect.getText().equalsIgnoreCase("Infini")  
+									|| boutonSelect.getText().equalsIgnoreCase("Zen")) {
 			sliderTemps.setEnabled(false);
 		}
 		
@@ -196,7 +197,7 @@ public class PanneauOptions extends AbstractPanneauImage {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			modeSelect = ((JRadioButton) arg0.getSource()).getText();
-			if (modeSelect.equalsIgnoreCase("Infini")) {
+			if (modeSelect.equalsIgnoreCase("Infini") || modeSelect.equalsIgnoreCase("Zen")) {
 				sliderTemps.setEnabled(false);
 			} else {
 				sliderTemps.setEnabled(true);

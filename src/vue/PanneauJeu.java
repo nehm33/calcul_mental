@@ -3,6 +3,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.text.NumberFormat;
 
 import javax.swing.ImageIcon;
@@ -83,6 +85,28 @@ public class PanneauJeu extends AbstractPanneauImage {
 		});
 		
 		
+		fieldReponse.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				
+			}
+
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				char c = arg0.getKeyChar();
+				if (c == '\n') {
+					f.getControle().verifier(fieldReponse.getText());
+					fieldReponse.setText("");
+				}
+			}
+
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				
+			}
+			
+		});
 	}
 	
 	public void changeEquation(String equation) {
