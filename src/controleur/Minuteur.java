@@ -7,13 +7,17 @@ import javax.swing.Timer;
 
 public class Minuteur {
 	
-	private Timer timer;
-	private int secondes;
-	private int minutes;
-	private AbstractControleurModeJeuChrono c;
+	protected Timer timer;
+	protected int secondes;
+	protected int minutes;
+	protected AbstractControleurModeJeuChrono c;
 	
 	public Minuteur(AbstractControleurModeJeuChrono c) {
 		this.c = c;
+		init();
+	}
+	
+	protected void init() {
 		secondes = c.getModele().getTemps()%60;
 		minutes = c.getModele().getTemps()/60;
 		timer = new Timer(1000, new ActionListener() {
@@ -33,8 +37,7 @@ public class Minuteur {
 	
 	private void decremente() {
 		if (secondes == 0 && minutes == 0) {
-			timer.stop();
-			c.stop();
+			stop();
 		} else if (secondes != 0) {
 			secondes--;
 			c.afficheTemps(toString());
@@ -56,6 +59,11 @@ public class Minuteur {
 	
 	public void reprendre() {
 		timer.start();
+	}
+	
+	public void stop() {
+		timer.stop();
+		c.stop();
 	}
 	
 	public void ajouteTemps(int sec) {

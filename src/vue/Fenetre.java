@@ -106,5 +106,10 @@ public class Fenetre extends JFrame {
 		PanneauJeu pan = (PanneauJeu) this.getContentPane();
 		pan.setSansTemps();
 	}
+	
+	public void ajoutTempsPanneauFinJeu(String temps) {
+		PanneauFinJeu pan = (PanneauFinJeu) this.getContentPane();
+		pan.setTemps(temps);
+	}
 
 }

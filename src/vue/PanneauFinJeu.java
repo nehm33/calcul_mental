@@ -16,6 +16,8 @@ public class PanneauFinJeu extends AbstractPanneauImage {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private JLabel lblVotreTemps;
+	private JLabel lblTemps;
 
 	/**
 	 * Create the panel.
@@ -39,7 +41,7 @@ public class PanneauFinJeu extends AbstractPanneauImage {
 		JLabel lblNewLabel_2 = new JLabel("BIEN JOUE");
 		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 70));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(198, 297, 403, 128);
+		lblNewLabel_2.setBounds(198, 394, 403, 128);
 		add(lblNewLabel_2);
 		
 		JButton btnNewButton = new JButton("Retour");
@@ -62,6 +64,24 @@ public class PanneauFinJeu extends AbstractPanneauImage {
 		add(lblScore);
 		lblScore.setText(""+f.getModele().getScore());
 		
+		lblVotreTemps = new JLabel("Votre temps  : ");
+		lblVotreTemps.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lblVotreTemps.setBounds(124, 312, 194, 35);
+		add(lblVotreTemps);
+		lblVotreTemps.setVisible(false);
+		
+		lblTemps = new JLabel("0");
+		lblTemps.setHorizontalAlignment(SwingConstants.LEFT);
+		lblTemps.setFont(new Font("Times New Roman", Font.BOLD, 75));
+		lblTemps.setBounds(340, 297, 240, 60);
+		add(lblTemps);
+		lblTemps.setVisible(false);
+		
 	}
-
+	
+	public void setTemps(String temps) {
+		lblVotreTemps.setVisible(true);
+		lblTemps.setVisible(true);
+		lblTemps.setText(temps);
+	}
 }

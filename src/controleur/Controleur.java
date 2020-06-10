@@ -58,7 +58,7 @@ public class Controleur extends AbstractControleur {
 				controleurJeu = new ControleurModeCLM(vue, modele);
 				break;
 			case Infini:
-				// TODO
+				controleurJeu = new ControleurModeInfini(vue, modele);
 				break;
 			case Arcade:
 				controleurJeu = new ControleurModeArcade(vue, modele);
