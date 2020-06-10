@@ -61,7 +61,7 @@ public class Controleur extends AbstractControleur {
 				// TODO
 				break;
 			case Arcade:
-				// TODO
+				controleurJeu = new ControleurModeArcade(vue, modele);
 				break;
 		}
 		controleurJeu.start();

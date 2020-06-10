@@ -12,10 +12,10 @@ public class Minuteur {
 	private int minutes;
 	private AbstractControleurModeJeuChrono c;
 	
-	public Minuteur(int temps, AbstractControleurModeJeuChrono c) {
+	public Minuteur(AbstractControleurModeJeuChrono c) {
 		this.c = c;
-		secondes = temps%60;
-		minutes = temps/60;
+		secondes = c.getModele().getTemps()%60;
+		minutes = c.getModele().getTemps()/60;
 		timer = new Timer(1000, new ActionListener() {
 
 			@Override
@@ -56,5 +56,15 @@ public class Minuteur {
 	
 	public void reprendre() {
 		timer.start();
+	}
+	
+	public void ajouteTemps(int sec) {
+		minutes += sec/60;
+		secondes += sec%60;
+		if (secondes >= 60) {
+			minutes++;
+			secondes -= 60;
+		}
+		c.afficheTemps(toString());
 	}
 }

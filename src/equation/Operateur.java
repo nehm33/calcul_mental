@@ -2,21 +2,27 @@ package src.equation;
 
 public enum Operateur {
 	
-	PLUS('+', 0.35),
-	MOINS('-', 0.25),
-	MULT('x', 0.23),
-	DIV('/', 0.17);
+	PLUS('+', 0.35, 1),
+	MOINS('-', 0.25, 2),
+	MULT('x', 0.23, 3),
+	DIV('/', 0.17, 4);
 	
 	private char op;
 	private double prob;
+	private int difficulte;
 	
-	Operateur(char op, double prob) {
+	Operateur(char op, double prob, int difficulte) {
 		this.op = op;
 		this.prob = prob;
+		this.difficulte = difficulte;
 	}
 	
 	public char getOp() {
 		return op;
+	}
+
+	public int getDifficulte() {
+		return difficulte;
 	}
 
 	public int evaluer(int a, int b) {

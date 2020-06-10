@@ -9,7 +9,7 @@ public abstract class AbstractControleurModeJeuChrono extends AbstractControleur
 
 	public AbstractControleurModeJeuChrono(Fenetre vue, Modele modele) {
 		super(vue, modele);
-		minuteur = new Minuteur(modele.getTemps(), this);
+		minuteur = new Minuteur(this);
 	}
 	
 	@Override

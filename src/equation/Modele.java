@@ -40,6 +40,10 @@ public class Modele {
 		this.mode = mode;
 	}
 	
+	public Operation getCurrOp() {
+		return currOp;
+	}
+
 	public int getScore() {
 		return score;
 	}
