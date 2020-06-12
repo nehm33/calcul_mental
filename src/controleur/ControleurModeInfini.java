@@ -28,6 +28,7 @@ public class ControleurModeInfini extends AbstractControleurModeJeuChrono {
 
 	@Override
 	protected void mauvaiseReponse() {
+		minuteur.stop();
 		stop();
 	}
 
