@@ -40,6 +40,11 @@ public class PanneauPrincipal extends AbstractPanneauImage {
 		});
 		
 		JButton btnAide = new JButton("Aide");
+		btnAide.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				f.setMenuAide();
+			}
+		});
 		btnAide.setFont(new Font("Times New Roman", Font.BOLD, 30));
 		
 		JButton btnQuitter = new JButton("Quitter");
