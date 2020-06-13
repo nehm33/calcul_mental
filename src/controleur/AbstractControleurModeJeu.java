@@ -15,6 +15,7 @@ public abstract class AbstractControleurModeJeu extends AbstractControleur {
 	}
 	
 	public void stop() {
+		new Thread(new TacheSon("fin")).start();
 		vue.termineJeu();
 	}
 	
@@ -30,8 +31,10 @@ public abstract class AbstractControleurModeJeu extends AbstractControleur {
 	public void verifier(int proposition) {
 		boolean b = modele.verifier(proposition);
 		if (b) {
+			new Thread(new TacheSon("vrai")).start();
 			bonneReponse();
 		} else {
+			new Thread(new TacheSon("faux")).start();
 			mauvaiseReponse();
 		}
 	}
