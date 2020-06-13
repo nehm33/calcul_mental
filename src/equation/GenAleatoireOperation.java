@@ -32,16 +32,19 @@ public class GenAleatoireOperation {
 				o.setOpDroite((int) (Math.random()*niveau*10));
 				break;
 			case '-':
-				int number = (int) (Math.random()*(niveau-5));
+				int number = (int) (Math.random()*(niveau-5)*10);
 				o.setOpDroite(number);
-				o.setOpGauche((int) (Math.random()*(niveau-4)*10)+number);
+				o.setOpGauche((int) (Math.random()*(niveau-5)*10)+number);
 				break;
 			case 'x':
 				o.setOpGauche((int) (Math.random()*(niveau-10)*5));
 				o.setOpDroite((int) (Math.random()*(niveau-10)*5));
 				break;
 			case '/':
-				int quot = (int) (Math.random()*(niveau-15)*5);
+				int quot; 
+				do {
+					quot = (int) (Math.random()*(niveau-15)*5);
+				} while (quot==0);
 				o.setOpDroite(quot);
 				o.setOpGauche((int) (Math.random()*(niveau-15)*5)*quot);
 				break;
