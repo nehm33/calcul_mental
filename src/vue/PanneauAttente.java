@@ -6,15 +6,15 @@ import java.awt.Graphics;
 
 import javax.swing.JLabel;
 
+import src.controleur.TacheSon;
+
 public class PanneauAttente extends AbstractPanneau {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private String motADessiner = "1";
 	private int taillePolice = 100;
-	private static int nbPaint = 0;
+	private int nbPaint = 0;
+	private int dureeSeconde = 15;
 	private JLabel label;
 
 	public PanneauAttente(Fenetre f) {
@@ -26,22 +26,26 @@ public class PanneauAttente extends AbstractPanneau {
 
 	@Override
 	public void paintComponent(Graphics g) {
-		nbPaint++;
-		if (nbPaint >= 40) {
-			nbPaint = 0;
+		String nomSon = "";
+		
+		if (nbPaint >= dureeSeconde*4) {
+			nbPaint = -1;
 			f.getControle().commenceJeu();
 		}
 		
-		if (nbPaint/10 == 3) {
+		if (nbPaint/dureeSeconde == 3) {
 			motADessiner = "GO !!!";
-		} else {
-			motADessiner = "" + (nbPaint/10+1);
+			nomSon = "GO";
+		} else if (nbPaint != -1){
+			motADessiner = "" + (nbPaint/dureeSeconde+1);
+			nomSon = motADessiner;
 		}
 		
-		if (nbPaint%10 == 0) {
+		if (nbPaint%dureeSeconde == 0) {
 			resetTaillePolice();
+			new Thread(new TacheSon(nomSon)).start();
 		} else {
-			taillePolice += 10;
+			taillePolice += 100/dureeSeconde;
 		}
 		
 		try {
@@ -50,7 +54,7 @@ public class PanneauAttente extends AbstractPanneau {
 	        e.printStackTrace();
 	    }
 		
-		
+		nbPaint++;
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 
