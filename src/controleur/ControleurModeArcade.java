@@ -13,8 +13,10 @@ public class ControleurModeArcade extends AbstractControleurModeJeuChrono {
 
 	@Override
 	protected void bonneReponse() {
+		nbTentatives = 0;
 		modele.augmenteScore(5*modele.getCurrOp().getOp().getDifficulte());
 		minuteur.ajouteTemps(2*modele.getCurrOp().getOp().getDifficulte());
+		vue.ajouteTemps(2*modele.getCurrOp().getOp().getDifficulte());
 		nouvelleEquation();
 	}
 

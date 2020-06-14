@@ -116,5 +116,15 @@ public class Fenetre extends JFrame {
 		PanneauFinJeu pan = (PanneauFinJeu) this.getContentPane();
 		pan.setTemps(temps);
 	}
+	
+	public void ajouteScore(int score) {
+		PanneauJeu pan = (PanneauJeu) this.getContentPane();
+		pan.lanceAnimationScore(score);
+	}
+	
+	public void ajouteTemps(int temps) {
+		PanneauJeu pan = (PanneauJeu) this.getContentPane();
+		pan.lanceAnimationTemps(temps);
+	}
 
 }

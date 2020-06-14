@@ -70,11 +70,13 @@ public class Modele {
 	
 	public void augmenteScore(int points) {
 		score += points;
+		f.ajouteScore(points);
 		f.changeScore(""+score);
 	}
 	
 	public void diminueScore(int points) {
 		score -= points;
+		f.ajouteScore(-points);
 		f.changeScore(""+score);
 	}
 

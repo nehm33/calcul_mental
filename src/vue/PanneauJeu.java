@@ -1,6 +1,7 @@
 package src.vue;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -25,6 +26,8 @@ public class PanneauJeu extends AbstractPanneauImage {
 	private JLabel lblScore;
 	private JFormattedTextField fieldReponse;
 	private JLabel lblTemps;
+	private JLabel lblBonusScore;
+	private JLabel lblBonusTemps;
 
 	/**
 	 * Create the panel.
@@ -75,6 +78,22 @@ public class PanneauJeu extends AbstractPanneauImage {
 		btnPause.setIcon(new ImageIcon("images/pause.png"));
 		btnPause.setBounds(724, 23, 41, 41);
 		add(btnPause);
+		
+		lblBonusScore = new JLabel("+10");
+		lblBonusScore.setForeground(Color.GREEN);
+		lblBonusScore.setHorizontalAlignment(SwingConstants.CENTER);
+		lblBonusScore.setFont(new Font("Yu Gothic", Font.BOLD | Font.ITALIC, 30));
+		lblBonusScore.setBounds(173, 122, 63, 41);
+		lblBonusScore.setVisible(false);
+		add(lblBonusScore);
+		
+		lblBonusTemps = new JLabel("+10");
+		lblBonusTemps.setHorizontalAlignment(SwingConstants.CENTER);
+		lblBonusTemps.setForeground(Color.GREEN);
+		lblBonusTemps.setFont(new Font("Yu Gothic", Font.BOLD | Font.ITALIC, 30));
+		lblBonusTemps.setBounds(517, 122, 63, 41);
+		lblBonusTemps.setVisible(false);
+		add(lblBonusTemps);
 		btnPause.addActionListener(new ActionListener() {
 
 			@Override
@@ -127,5 +146,47 @@ public class PanneauJeu extends AbstractPanneauImage {
 	
 	public void setSansTemps() {
 		lblTemps.setText("");
+	}
+	
+	public void lanceAnimationScore(int points) {
+		new Thread(new Animation(lblBonusScore, points)).start();
+	}
+	
+	public void lanceAnimationTemps(int points) {
+		new Thread(new Animation(lblBonusTemps, points)).start();
+	}
+	
+	private class Animation implements Runnable {
+		
+		private JLabel label;
+		private Point initialPosition;
+		
+		public Animation(JLabel label, int points) {
+			this.label = label;
+			this.label.setText("");
+			if (points < 0) {
+				this.label.setForeground(Color.RED);
+			} else {
+				this.label.setForeground(Color.GREEN);
+				this.label.setText("+");
+			}
+			this.label.setText(this.label.getText()+points);
+			initialPosition = this.label.getLocation();
+		}
+
+		@Override
+		public void run() {
+			label.setVisible(true);
+			for (int i = 0; i < 10; i++) {
+				label.setLocation(label.getX(), label.getY()-10);
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			label.setVisible(false);
+			label.setLocation(initialPosition);
+		}
 	}
 }
