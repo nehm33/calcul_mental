@@ -47,6 +47,7 @@ public class PanneauAide extends AbstractPanneauImage {
 		JScrollPane scrollPane = new JScrollPane(txtrBonjourEtBienvenue);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(100, 150, 600, 430);
+		txtrBonjourEtBienvenue.setEditable(false);
 		add(scrollPane);
 		
 		
