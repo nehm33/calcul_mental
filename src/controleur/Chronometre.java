@@ -27,6 +27,7 @@ public class Chronometre extends Minuteur {
 	
 	@Override
 	public void stop() {
+		c.getModele().setTemps(minutes*60+secondes);
 		timer.stop();
 	}
 	
