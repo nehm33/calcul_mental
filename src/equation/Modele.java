@@ -1,5 +1,6 @@
 package src.equation;
 
+import src.db.ScoreDAO;
 import src.vue.Fenetre;
 
 // Zen(nb fixe), Infini(erreur fatale), CLM(1min), Burger(1min+bonus et malus)
@@ -11,6 +12,7 @@ public class Modele {
 	private Mode mode = Mode.Zen;
 	private int score = 0;
 	private Fenetre f;
+	private ScoreDAO scoreDAO = new ScoreDAO();
 	
 	public Modele(Fenetre f) {
 		this.f = f;
@@ -78,6 +80,10 @@ public class Modele {
 		score -= points;
 		f.ajouteScore(-points);
 		f.changeScore(""+score);
+	}
+	
+	public boolean ajouteScoreDB(String pseudo) {
+		return scoreDAO.create(new Score(pseudo, score, currNiveau, temps, mode.getNom()));
 	}
 
 }

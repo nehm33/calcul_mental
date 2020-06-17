@@ -76,7 +76,7 @@ public class PanneauFinJeu extends AbstractPanneauImage {
 		lblTemps.setBounds(340, 297, 240, 60);
 		add(lblTemps);
 		lblTemps.setVisible(false);
-		
+		f.getControle().ajouteScore();
 	}
 	
 	public void setTemps(String temps) {

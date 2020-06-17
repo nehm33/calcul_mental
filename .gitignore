@@ -2,3 +2,4 @@
 /src/equation/*.class
 /src/controleur/*.class
 /src/vue/*.class
+/src/db/*.class

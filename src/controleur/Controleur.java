@@ -83,5 +83,27 @@ public class Controleur extends AbstractControleur {
 	public void reprendre() {
 		controleurJeu.reprendre();
 	}
+	
+	public void ajouteScore() {
+		if (!modele.getMode().getNom().equalsIgnoreCase("Zen")) {
+			String pseudo = JOptionPane.showInputDialog(null, 
+								"Enregistrez votre score. Entrez votre pseudo.", "Scores", 
+																JOptionPane.QUESTION_MESSAGE);
+			while (pseudo.isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Vous n'avez donné aucun pseudo", "Erreur",
+						JOptionPane.ERROR_MESSAGE);
+				pseudo = JOptionPane.showInputDialog(null, 
+						"Enregistrez votre score. Entrez votre pseudo.", "Scores", 
+														JOptionPane.QUESTION_MESSAGE);
+			}
+			if (modele.ajouteScoreDB(pseudo)) {
+				JOptionPane.showMessageDialog(null, "Enregistrement réussi!", "Succès",
+						JOptionPane.INFORMATION_MESSAGE);
+			} else {
+				JOptionPane.showMessageDialog(null, "Echec de l'enregistrement", "Erreur",
+						JOptionPane.ERROR_MESSAGE);
+			}
+		}
+	}
 
 }
