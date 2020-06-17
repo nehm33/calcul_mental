@@ -55,6 +55,9 @@ public class PanneauPrincipal extends AbstractPanneauImage {
 			}
 		});
 		
+		JButton btnScores = new JButton("Scores");
+		btnScores.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -63,22 +66,28 @@ public class PanneauPrincipal extends AbstractPanneauImage {
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(btnQuitter, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnAide, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnJouer, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnOptions, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE))
-					.addGap(276))
+						.addComponent(btnScores, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnOptions, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnJouer, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE))
+							.addGap(276)))
+					.addGap(1932))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(104)
+					.addGap(40)
 					.addComponent(btnJouer, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
 					.addGap(72)
 					.addComponent(btnOptions, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
-					.addGap(68)
+					.addGap(72)
+					.addComponent(btnScores, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
+					.addGap(72)
 					.addComponent(btnAide, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
-					.addGap(76)
+					.addGap(72)
 					.addComponent(btnQuitter, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
-					.addGap(144))
+					.addGap(72))
 		);
 		setLayout(groupLayout);
 	}
