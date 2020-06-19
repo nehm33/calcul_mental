@@ -85,7 +85,7 @@ public class Controleur extends AbstractControleur {
 	}
 	
 	public void ajouteScore() {
-		if (!modele.getMode().getNom().equalsIgnoreCase("Zen")) {
+		if (!modele.getMode().getNom().equalsIgnoreCase("Zen") && modele.nouveauMeilleurScore()) {
 			String pseudo = JOptionPane.showInputDialog(null, 
 								"Enregistrez votre score. Entrez votre pseudo.", "Scores", 
 																JOptionPane.QUESTION_MESSAGE);

@@ -85,5 +85,34 @@ public class Modele {
 	public boolean ajouteScoreDB(String pseudo) {
 		return scoreDAO.create(new Score(pseudo, score, currNiveau, temps, mode.getNom()));
 	}
+	
+	public boolean nouveauMeilleurScore() {
+		Score[] scores = scoreDAO.getMeilleursScores(currNiveau, temps, mode.getNom());
+		Score scoreMin = null;
+		int nbScores = 0;
+		for (Score s : scores) {
+			if (s != null) {
+				scoreMin = s;
+				nbScores++;
+			}
+		}
+		if (scoreMin != null && nbScores == 10) {
+			if (scoreMin.getScore() >= score && mode != Mode.Infini) {
+				return false;
+			}
+			if (mode == Mode.Infini) {
+				if (scoreMin.getScore() > score) {
+					return false;
+				} else if (scoreMin.getScore() == score && scoreMin.getTemps() <= temps) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	public Score[] getMeilleursScores(int niveau, int temps, String mode) {
+		return scoreDAO.getMeilleursScores(niveau, temps, mode);
+	}
 
 }
