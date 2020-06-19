@@ -1,11 +1,15 @@
 package src.vue;
 
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
 import javax.swing.JFrame;
 
 import src.controleur.Controleur;
+import src.db.Connect;
 import src.equation.Modele;
 
-public class Fenetre extends JFrame {
+public class Fenetre extends JFrame implements WindowListener {
 
 	/**
 	 * 
@@ -24,7 +28,7 @@ public class Fenetre extends JFrame {
 		  this.setLocationRelativeTo(null);
 		  this.setResizable(false);
 		  this.setContentPane(new PanneauPrincipal(this));
-		  this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);             
+		  this.addWindowListener(this);             
 
 		  // Fenetre Visible
 		  this.setVisible(true);
@@ -125,6 +129,49 @@ public class Fenetre extends JFrame {
 	public void ajouteTemps(int temps) {
 		PanneauJeu pan = (PanneauJeu) this.getContentPane();
 		pan.lanceAnimationTemps(temps);
+	}
+
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		
+	}
+
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		
+	}
+
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		Connect.close();
+		System.exit(0);
+	}
+
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		
+	}
+
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		
+	}
+
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		
+	}
+
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		
 	}
 
 }

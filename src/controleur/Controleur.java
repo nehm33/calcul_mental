@@ -2,6 +2,7 @@ package src.controleur;
 
 import javax.swing.JOptionPane;
 
+import src.db.Connect;
 import src.equation.Mode;
 import src.equation.Modele;
 import src.vue.Fenetre;
@@ -20,6 +21,7 @@ public class Controleur extends AbstractControleur {
 			    		 	JOptionPane.YES_NO_OPTION, 
 			    		 		JOptionPane.QUESTION_MESSAGE);
 		if (option == JOptionPane.OK_OPTION) {
+					Connect.close();
 			    	System.exit(0);
 		}
 	}
