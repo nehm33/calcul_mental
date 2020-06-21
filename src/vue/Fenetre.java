@@ -69,6 +69,11 @@ public class Fenetre extends JFrame implements WindowListener {
 		this.revalidate();
 	}
 	
+	public void setMenuScores() {
+		this.setContentPane(new PanneauScores(this));
+		this.revalidate();
+	}
+	
 	public void setAttente() {
 		this.setContentPane(new PanneauAttente(this));
 		this.revalidate();

@@ -57,6 +57,14 @@ public class PanneauPrincipal extends AbstractPanneauImage {
 		
 		JButton btnScores = new JButton("Scores");
 		btnScores.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		btnScores.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				f.setMenuScores();
+			}
+			
+		});
 		
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
