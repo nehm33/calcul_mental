@@ -1,6 +1,8 @@
 package src.equation;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Score {
 	
@@ -72,6 +74,16 @@ public class Score {
 		this.date = date;
 	}
 	
+	public String getTempsString() {
+		return temps/60  + " : " + temps%60;
+	}
 	
+	public String getDateString() {
+		Calendar c = new GregorianCalendar();
+		c.setTime(date);
+		return c.get(Calendar.DAY_OF_MONTH) + "/" + c.get(Calendar.MONTH) + "/" 
+					+ c.get(Calendar.YEAR) + " " + c.get(Calendar.HOUR_OF_DAY) + ":" 
+						+ c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND); 
+	}
 
 }

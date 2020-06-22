@@ -111,8 +111,32 @@ public class Modele {
 		return true;
 	}
 	
-	public Score[] getMeilleursScores(int niveau, int temps, String mode) {
-		return scoreDAO.getMeilleursScores(niveau, temps, mode);
+	public Object[][] getMeilleursScores(int niveau, int temps, String mode) {
+		Score[] scores = scoreDAO.getMeilleursScores(niveau, temps, mode);
+		boolean estInfini = mode.equalsIgnoreCase("Infini");
+		int i;
+		Object[][] tab;
+		if (estInfini) {
+			tab = new Object[10][5];
+		} else {
+			tab = new Object[10][4];
+		}
+		for (i = 0; i < 10; i++) {
+			tab[i][0] = i+1;
+			Score s = scores[i];
+			if (s != null) {
+				tab[i][1] = s.getPseudo();
+				tab[i][2] = s.getScore();
+				if (estInfini) {
+					tab[i][3] = s.getTempsString();
+					tab[i][4] = s.getDateString();
+				} else {
+					tab[i][3] = s.getDateString();
+				}
+				
+			}
+		}
+		return tab;
 	}
 
 }

@@ -32,6 +32,7 @@ public class PanneauScores extends AbstractPanneauImage {
 	private JSpinner spinTempsArcade;
 	private JTable tableArcade;
 	private JTable tableInfini;
+	private JTabbedPane tabbedPane;
 
 	/**
 	 * Create the panel.
@@ -54,15 +55,7 @@ public class PanneauScores extends AbstractPanneauImage {
 		spinNiveau = new JSpinner();
 		spinNiveau.setModel(new SpinnerNumberModel(1, 1, 20, 1));
 		spinNiveau.setBounds(307, 120, 147, 20);
-		spinNiveau.addChangeListener(new ChangeListener() {
-
-			@Override
-			public void stateChanged(ChangeEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-		});
+		spinNiveau.addChangeListener(new ListenerChangement());
 		add(spinNiveau);
 		
 		JButton btnRetour = new JButton("Retour");
@@ -78,21 +71,13 @@ public class PanneauScores extends AbstractPanneauImage {
 		});
 		add(btnRetour);
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(21, 170, 715, 443);
-		tabbedPane.addChangeListener(new ChangeListener() {
-
-			@Override
-			public void stateChanged(ChangeEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-		});
+		tabbedPane.addChangeListener(new ListenerChangement());
 		add(tabbedPane);
 		
 		panelCLM = new JPanel();
-		tabbedPane.addTab("Mode CLM", null, panelCLM, null);
+		
 		panelCLM.setLayout(null);
 		
 		JLabel lblTemps = new JLabel("Temps");
@@ -107,7 +92,11 @@ public class PanneauScores extends AbstractPanneauImage {
 
 			@Override
 			public void stateChanged(ChangeEvent arg0) {
-				// TODO Auto-generated method stub
+				tableCLM.setModel(new DefaultTableModel(f.getModele().getMeilleursScores(
+																	(int) spinNiveau.getValue(),
+																(int) spinTempsCLM.getValue(),
+														modes[tabbedPane.getSelectedIndex()]), 
+												new String[] {"", "pseudo", "score", "date"}));
 				
 			}
 			
@@ -146,7 +135,7 @@ public class PanneauScores extends AbstractPanneauImage {
 		scrollPaneCLM.setViewportView(tableCLM);
 		
 		panelInfini = new JPanel();
-		tabbedPane.addTab("Mode Infini", null, panelInfini, null);
+		
 		panelInfini.setLayout(null);
 		
 		JScrollPane scrollPaneInfini = new JScrollPane();
@@ -177,11 +166,14 @@ public class PanneauScores extends AbstractPanneauImage {
 		));
 		tableInfini.getColumnModel().getColumn(0).setPreferredWidth(15);
 		tableInfini.getColumnModel().getColumn(0).setMinWidth(1);
-		tableInfini.getColumnModel().getColumn(2).setPreferredWidth(41);
+		tableInfini.getColumnModel().getColumn(1).setPreferredWidth(63);
+		tableInfini.getColumnModel().getColumn(2).setPreferredWidth(38);
+		tableInfini.getColumnModel().getColumn(3).setPreferredWidth(48);
+		tableInfini.getColumnModel().getColumn(4).setPreferredWidth(107);
 		scrollPaneInfini.setViewportView(tableInfini);
 		
 		panelArcade = new JPanel();
-		tabbedPane.addTab("Mode Arcade", null, panelArcade, null);
+		
 		panelArcade.setLayout(null);
 		
 		JLabel lblTemps2 = new JLabel("Temps");
@@ -196,8 +188,11 @@ public class PanneauScores extends AbstractPanneauImage {
 
 			@Override
 			public void stateChanged(ChangeEvent arg0) {
-				// TODO Auto-generated method stub
-				
+				tableArcade.setModel(new DefaultTableModel(f.getModele().getMeilleursScores(
+																	(int) spinNiveau.getValue(),
+																(int) spinTempsArcade.getValue(),
+														modes[tabbedPane.getSelectedIndex()]), 
+												new String[] {"", "pseudo", "score", "date"}));
 			}
 			
 		});
@@ -233,5 +228,42 @@ public class PanneauScores extends AbstractPanneauImage {
 		tableArcade.getColumnModel().getColumn(0).setMinWidth(1);
 		tableArcade.getColumnModel().getColumn(2).setPreferredWidth(41);
 		scrollPaneArcade.setViewportView(tableArcade);
+		
+		
+		tabbedPane.addTab("Mode CLM", null, panelCLM, null);
+		tabbedPane.addTab("Mode Infini", null, panelInfini, null);
+		tabbedPane.addTab("Mode Arcade", null, panelArcade, null);
+	}
+	
+	private class ListenerChangement implements ChangeListener {
+
+		@Override
+		public void stateChanged(ChangeEvent arg0) {
+			int index = tabbedPane.getSelectedIndex();
+			switch (index) {
+				case 0:
+					//CLM
+					tableCLM.setModel(new DefaultTableModel(
+							f.getModele().getMeilleursScores((int) spinNiveau.getValue(),
+															(int) spinTempsCLM.getValue(),
+													modes[tabbedPane.getSelectedIndex()]), 
+											new String[] {"", "pseudo", "score", "date"}));
+					break;
+				case 1:
+					tableInfini.setModel(new DefaultTableModel(
+							f.getModele().getMeilleursScores((int) spinNiveau.getValue(),0,
+													modes[tabbedPane.getSelectedIndex()]), 
+									new String[] {"", "pseudo", "score", "temps", "date"}));
+					break;
+				case 2:
+					tableArcade.setModel(new DefaultTableModel(
+							f.getModele().getMeilleursScores((int) spinNiveau.getValue(),
+															(int) spinTempsArcade.getValue(),
+													modes[tabbedPane.getSelectedIndex()]), 
+											new String[] {"", "pseudo", "score", "date"}));
+					break;
+			}
+		}
+		
 	}
 }
