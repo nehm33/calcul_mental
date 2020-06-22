@@ -74,7 +74,12 @@ public class Controleur extends AbstractControleur {
 			JOptionPane.showMessageDialog(null, "Vous n'avez donné aucune réponse", "Erreur",
 																	JOptionPane.ERROR_MESSAGE);
 		} else {
-			controleurJeu.verifier(Integer.parseInt(resultat));
+			try {
+				controleurJeu.verifier(Integer.parseInt(resultat));
+			} catch (NumberFormatException e) {
+				JOptionPane.showMessageDialog(null, "Votre réponse n'est pas un nombre", 
+						"Erreur", JOptionPane.ERROR_MESSAGE);
+			}
 		}
 	}
 	
