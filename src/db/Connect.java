@@ -32,4 +32,8 @@ public class Connect {
 			}
 		}
 	}
+	
+	public static boolean existe() {
+		return conn != null;
+	}
 }

@@ -61,7 +61,7 @@ public class PanneauPrincipal extends AbstractPanneauImage {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.setMenuScores();
+				f.getControle().afficheScores();
 			}
 			
 		});

@@ -87,7 +87,8 @@ public class Controleur extends AbstractControleur {
 	}
 	
 	public void ajouteScore() {
-		if (!modele.getMode().getNom().equalsIgnoreCase("Zen") && modele.nouveauMeilleurScore()) {
+		if (Connect.existe() && !modele.getMode().getNom().equalsIgnoreCase("Zen") 
+															&& modele.nouveauMeilleurScore()) {
 			String pseudo = JOptionPane.showInputDialog(null, 
 								"Enregistrez votre score. Entrez votre pseudo.", "Scores", 
 																JOptionPane.QUESTION_MESSAGE);
@@ -105,6 +106,15 @@ public class Controleur extends AbstractControleur {
 				JOptionPane.showMessageDialog(null, "Echec de l'enregistrement", "Erreur",
 						JOptionPane.ERROR_MESSAGE);
 			}
+		}
+	}
+	
+	public void afficheScores() {
+		if (Connect.existe()) {
+			vue.setMenuScores();
+		} else {
+			JOptionPane.showMessageDialog(null, "Problème de connexion à la base de données",
+					"Erreur", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
