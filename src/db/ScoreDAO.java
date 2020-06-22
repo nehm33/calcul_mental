@@ -39,11 +39,11 @@ public class ScoreDAO {
 	public Score[] getMeilleursScores(int niveau, int temps, String mode) {
 		Score[] s = new Score[10];
 		String query = "SELECT pseudo, score, temps, heure_jeu FROM scores WHERE niveau = ? AND ";
-		query += "mode_jeu = ? AND ";
+		query += "mode_jeu = ? ";
 		if (!mode.equalsIgnoreCase("Infini")) {
-			query += "temps = ? ";
+			query += "AND temps = ? ";
 		}
-		query += "ORDER BY score DESC, temps ASC, heure_jeu DESC, pseudo DESC";
+		query += "ORDER BY score DESC, temps ASC, heure_jeu ASC, pseudo DESC";
 		query += " LIMIT 10";
 		try {
 			PreparedStatement stmt = connect.prepareStatement(query);
