@@ -22,7 +22,7 @@ public class PanneauAide extends AbstractPanneauImage {
 	 * Create the panel.
 	 */
 	public PanneauAide(Fenetre f) {
-		super("images/fond.jpg", f);
+		super("data/images/fond.jpg", f);
 		setLayout(null);
 		
 		JButton btnRetour = new JButton("Retour");

@@ -23,7 +23,7 @@ public class PanneauFinJeu extends AbstractPanneauImage {
 	 * Create the panel.
 	 */
 	public PanneauFinJeu(Fenetre f) {
-		super("images/fond.jpg", f);
+		super("data/images/fond.jpg", f);
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Fin de partie");

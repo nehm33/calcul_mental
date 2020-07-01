@@ -31,7 +31,7 @@ public class PanneauOptions extends AbstractPanneauImage {
 	 * Create the panel.
 	 */
 	public PanneauOptions(Fenetre fenetre) {
-		super("images/fond.jpg", fenetre);
+		super("data/images/fond.jpg", fenetre);
 		
 		Map<String, JRadioButton> hash = new HashMap<String, JRadioButton>();
 		

@@ -24,7 +24,7 @@ public class TacheSon implements Runnable, LineListener {
 
 	@Override
 	public void run() {
-		File audioFile = new File("sons/"+nom+".wav");
+		File audioFile = new File("data/sons/"+nom+".wav");
 		try {
 			AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
 			AudioFormat format = audioStream.getFormat();

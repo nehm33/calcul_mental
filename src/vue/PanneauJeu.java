@@ -33,7 +33,7 @@ public class PanneauJeu extends AbstractPanneauImage {
 	 * Create the panel.
 	 */
 	public PanneauJeu(Fenetre f) {
-		super("images/fond.jpg", f);
+		super("data/images/fond.jpg", f);
 		setLayout(null);
 		
 		lblEquation = new JLabel("450 x 150  = ");
@@ -75,7 +75,7 @@ public class PanneauJeu extends AbstractPanneauImage {
 		add(lblTemps);
 		
 		JButton btnPause = new JButton("");
-		btnPause.setIcon(new ImageIcon("images/pause.png"));
+		btnPause.setIcon(new ImageIcon("data/images/pause.png"));
 		btnPause.setBounds(724, 23, 41, 41);
 		add(btnPause);
 		

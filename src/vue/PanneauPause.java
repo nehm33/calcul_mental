@@ -23,7 +23,7 @@ public class PanneauPause extends AbstractPanneauImage {
 	 * Create the panel.
 	 */
 	public PanneauPause(Fenetre f) {
-		super("images/fond.jpg", f);
+		super("data/images/fond.jpg", f);
 		
 		JLabel lblPause = new JLabel("Pause");
 		lblPause.setHorizontalAlignment(SwingConstants.CENTER);
