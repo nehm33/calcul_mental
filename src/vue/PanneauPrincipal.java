@@ -18,7 +18,7 @@ public class PanneauPrincipal extends AbstractPanneauImage {
 	 */
 	public PanneauPrincipal(Fenetre fenetre) {
 		
-		super("data/images/fond.jpg", fenetre);
+		super("fond.jpg", fenetre);
 		
 		JButton btnJouer = new JButton("Jouer");
 		btnJouer.setFont(new Font("Times New Roman", Font.BOLD, 30));

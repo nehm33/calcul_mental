@@ -13,6 +13,8 @@ import javax.sound.sampled.LineListener;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import src.Main;
+
 public class TacheSon implements Runnable, LineListener {
 	
 	private String nom;
@@ -24,7 +26,7 @@ public class TacheSon implements Runnable, LineListener {
 
 	@Override
 	public void run() {
-		File audioFile = new File("data/sons/"+nom+".wav");
+		File audioFile = new File(Main.chemin+"/sons/"+nom+".wav");
 		try {
 			AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
 			AudioFormat format = audioStream.getFormat();

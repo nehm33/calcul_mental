@@ -38,7 +38,7 @@ public class PanneauScores extends AbstractPanneauImage {
 	 * Create the panel.
 	 */
 	public PanneauScores(Fenetre f) {
-		super("data/images/fond.jpg", f);
+		super("fond.jpg", f);
 		setLayout(null);
 		
 		JLabel lblBestScores = new JLabel("Meilleurs Scores");

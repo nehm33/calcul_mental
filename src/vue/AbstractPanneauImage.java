@@ -8,6 +8,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import src.Main;
+
 public abstract class AbstractPanneauImage extends AbstractPanneau {
 
 	/**
@@ -19,7 +21,7 @@ public abstract class AbstractPanneauImage extends AbstractPanneau {
 	public AbstractPanneauImage(String image, Fenetre f) {
 		super(f);
 		try {
-			img = ImageIO.read(new File(image));
+			img = ImageIO.read(new File(Main.chemin+"images/"+image));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
