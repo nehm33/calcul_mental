@@ -97,9 +97,14 @@ public class Controleur extends AbstractControleur {
 			String pseudo = JOptionPane.showInputDialog(null, 
 								"Enregistrez votre score. Entrez votre pseudo.", "Scores", 
 																JOptionPane.QUESTION_MESSAGE);
-			while (pseudo.isEmpty()) {
-				JOptionPane.showMessageDialog(null, "Vous n'avez donné aucun pseudo", "Erreur",
-						JOptionPane.ERROR_MESSAGE);
+			while (pseudo.isEmpty() || pseudo.length() < 5) {
+				if (pseudo.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Vous n'avez donné aucun pseudo", 
+							"Erreur", JOptionPane.ERROR_MESSAGE);
+				} else {
+					JOptionPane.showMessageDialog(null, "Le pseudo doit avoir au moins 5 caractères", 
+							"Erreur", JOptionPane.ERROR_MESSAGE);
+				}
 				pseudo = JOptionPane.showInputDialog(null, 
 						"Enregistrez votre score. Entrez votre pseudo.", "Scores", 
 														JOptionPane.QUESTION_MESSAGE);
