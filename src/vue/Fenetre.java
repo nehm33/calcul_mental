@@ -2,7 +2,9 @@ package src.vue;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 import src.controleur.Controleur;
@@ -28,6 +30,11 @@ public class Fenetre extends JFrame implements WindowListener {
 		  this.setLocationRelativeTo(null);
 		  this.setResizable(false);
 		  this.setContentPane(new PanneauPrincipal(this));
+		  try {
+			  this.setIconImage(ImageIO.read(this.getClass().getResource("/images/icone.jpg")));
+		  } catch (IOException e) {
+			  e.printStackTrace();
+		  }
 		  this.addWindowListener(this);             
 
 		  // Fenetre Visible
