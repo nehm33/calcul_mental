@@ -14,8 +14,6 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import src.Main;
-
 
 
 public class PanneauJeu extends AbstractPanneauImage {
@@ -77,7 +75,7 @@ public class PanneauJeu extends AbstractPanneauImage {
 		add(lblTemps);
 		
 		JButton btnPause = new JButton("");
-		btnPause.setIcon(new ImageIcon(Main.chemin+"images/pause.png"));
+		btnPause.setIcon(new ImageIcon(this.getClass().getResource("/images/pause.png")));
 		btnPause.setBounds(724, 23, 41, 41);
 		add(btnPause);
 		

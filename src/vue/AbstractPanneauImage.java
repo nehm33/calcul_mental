@@ -3,12 +3,9 @@ package src.vue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-
-import src.Main;
 
 public abstract class AbstractPanneauImage extends AbstractPanneau {
 
@@ -21,7 +18,7 @@ public abstract class AbstractPanneauImage extends AbstractPanneau {
 	public AbstractPanneauImage(String image, Fenetre f) {
 		super(f);
 		try {
-			img = ImageIO.read(new File(Main.chemin+"images/"+image));
+			img = ImageIO.read(this.getClass().getResource("/images/"+image));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

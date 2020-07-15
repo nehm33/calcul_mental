@@ -1,7 +1,7 @@
 package src.controleur;
 
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
@@ -12,8 +12,6 @@ import javax.sound.sampled.LineEvent;
 import javax.sound.sampled.LineListener;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-
-import src.Main;
 
 public class TacheSon implements Runnable, LineListener {
 	
@@ -26,7 +24,7 @@ public class TacheSon implements Runnable, LineListener {
 
 	@Override
 	public void run() {
-		File audioFile = new File(Main.chemin+"/sons/"+nom+".wav");
+		URL audioFile = this.getClass().getResource("/sons/"+nom+".wav");
 		try {
 			AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
 			AudioFormat format = audioStream.getFormat();
