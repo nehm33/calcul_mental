@@ -81,9 +81,17 @@ public class Score {
 	public String getDateString() {
 		Calendar c = new GregorianCalendar();
 		c.setTime(date);
-		return c.get(Calendar.DAY_OF_MONTH) + "/" + c.get(Calendar.MONTH) + "/" 
-					+ c.get(Calendar.YEAR) + " " + c.get(Calendar.HOUR_OF_DAY) + ":" 
-						+ c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND); 
+		return format(c.get(Calendar.DAY_OF_MONTH)) + "/" + format(c.get(Calendar.MONTH)+1) + "/" 
+					+ format(c.get(Calendar.YEAR)) + " " + format(c.get(Calendar.HOUR_OF_DAY)) 
+						+":"+format(c.get(Calendar.MINUTE)) + ":" +format(c.get(Calendar.SECOND)); 
+	}
+	
+	private String format(int date) {
+		if (date >= 10) {
+			return ""+date;
+		} else {
+			return "0"+date;
+		}
 	}
 
 }
