@@ -12,7 +12,7 @@ public class PanneauAttente extends AbstractPanneau {
 
 	private static final long serialVersionUID = 1L;
 	private String motADessiner = "1";
-	private int taillePolice = 100;
+	private int taillePolice = 50;
 	private int nbPaint = 0;
 	private int dureeSeconde = 15;
 	private JLabel label;
@@ -34,7 +34,7 @@ public class PanneauAttente extends AbstractPanneau {
 		}
 		
 		if (nbPaint/dureeSeconde == 3) {
-			motADessiner = "GO !!!";
+			motADessiner = "GO";
 			nomSon = "GO";
 		} else if (nbPaint != -1){
 			motADessiner = "" + (nbPaint/dureeSeconde+1);

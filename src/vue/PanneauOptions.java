@@ -37,11 +37,11 @@ public class PanneauOptions extends AbstractPanneauImage {
 		
 		JLabel lblNiveau = new JLabel("Niveau");
 		lblNiveau.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNiveau.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblNiveau.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		
 		JLabel lblMode = new JLabel("Mode");
 		lblMode.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMode.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblMode.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		
 		JRadioButton rdbtnZen = new JRadioButton("Zen");
 		hash.put(rdbtnZen.getText(), rdbtnZen);
@@ -77,7 +77,7 @@ public class PanneauOptions extends AbstractPanneauImage {
 		
 		JLabel lblTemps = new JLabel("Temps");
 		lblTemps.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTemps.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblTemps.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		
 		JSpinner spinNiveau = new JSpinner();
 		spinNiveau.setModel(new SpinnerNumberModel(f.getModele().getCurrNiveau(), 1, 20, 1));

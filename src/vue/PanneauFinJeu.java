@@ -28,13 +28,13 @@ public class PanneauFinJeu extends AbstractPanneauImage {
 		
 		JLabel lblNewLabel = new JLabel("Fin de partie");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 40));
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 30));
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setBounds(288, 39, 230, 95);
 		add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Votre score  : ");
-		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		lblNewLabel_1.setBounds(136, 198, 194, 35);
 		add(lblNewLabel_1);
 		

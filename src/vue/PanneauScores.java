@@ -43,7 +43,7 @@ public class PanneauScores extends AbstractPanneauImage {
 		
 		JLabel lblBestScores = new JLabel("Meilleurs Scores");
 		lblBestScores.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBestScores.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 80));
+		lblBestScores.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 50));
 		lblBestScores.setBounds(100, 11, 600, 88);
 		add(lblBestScores);
 		
@@ -82,7 +82,7 @@ public class PanneauScores extends AbstractPanneauImage {
 		
 		JLabel lblTemps = new JLabel("Temps");
 		lblTemps.setBounds(106, 11, 48, 19);
-		lblTemps.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblTemps.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		panelCLM.add(lblTemps);
 		
 		spinTempsCLM = new JSpinner();
@@ -178,7 +178,7 @@ public class PanneauScores extends AbstractPanneauImage {
 		
 		JLabel lblTemps2 = new JLabel("Temps");
 		lblTemps2.setBounds(106, 11, 48, 19);
-		lblTemps2.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblTemps2.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		panelArcade.add(lblTemps2);
 		
 		spinTempsArcade = new JSpinner();

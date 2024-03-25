@@ -37,13 +37,13 @@ public class PanneauJeu extends AbstractPanneauImage {
 		setLayout(null);
 		
 		lblEquation = new JLabel("450 x 150  = ");
-		lblEquation.setFont(new Font("Calibri", Font.BOLD, 70));
+		lblEquation.setFont(new Font("Calibri", Font.BOLD, 50));
 		lblEquation.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblEquation.setBounds(52, 293, 363, 65);
 		add(lblEquation);
 		
 		fieldReponse = new JFormattedTextField(NumberFormat.getIntegerInstance());
-		fieldReponse.setFont(new Font("Calibri", Font.BOLD, 70));
+		fieldReponse.setFont(new Font("Calibri", Font.BOLD, 50));
 		fieldReponse.setHorizontalAlignment(SwingConstants.CENTER);
 		fieldReponse.setBounds(425, 293, 168, 65);
 		add(fieldReponse);
